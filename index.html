@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهنئة لحبيبتي هاجر</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ffe1e1, #ffe8e8);
+            font-family: 'Arial', sans-serif;
+            color: #b04156;
+            direction: rtl;
+            overflow: hidden;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #ffe1e1, #ffe8e8); }
+            100% { background: linear-gradient(135deg, #ffe8e8, #e9f5fb); }
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card h1 {
+            font-size: 2.2em;
+            color: #d44d5c;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(255, 255, 255, 0.6);
+        }
+
+        .card p {
+            font-size: 1.1em;
+            margin: 15px 0;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        .card p:hover {
+            color: #e63946;
+        }
+
+        .heart {
+            font-size: 2.5em;
+            color: #e63946;
+            animation: beat 1.2s infinite;
+        }
+
+        .date {
+            font-size: 1em;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #e63946;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 15px;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #d62839;
+            transform: scale(1.05);
+        }
+
+        #message {
+            font-size: 1.2em;
+            color: #d44d5c;
+            display: none;
+            animation: appear 1.5s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes appear {
+            to { opacity: 1; transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>تهنئة خاصة لحبيبتي هاجر ❤️</h1>
+        <p>اليوم، نكمل شهرين على بداية حبنا 💕</p>
+        <p class="date">تاريخ علاقتنا: 26 أوت 2024</p>
+        <span class="heart">❤️</span>
+        <br>
+        <button class="button" onclick="showMessage()">اضغطي هنا للمفاجأة</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        const messages = [
+            "كل لحظة معكِ تضيء قلبي، كأنني أعيش ألف سنة من السعادة.",
+            "أنتِ الحلم الذي تحقق، أستطيع أن أراكِ في كل لحظة من حياتي.",
+            "أحبكِ كما لم أحب أحداً من قبل، وكأنكِ قطعة من روحي.",
+            "هذا الشهرين معكِ كانا كعمر كامل من الفرح والحنان.",
+            "أنتِ النور الذي يضيء طريقي، أريد أن أكون معكِ إلى الأبد.",
+            "لقد عرفتُ معنى الحب الحقيقي عندما التقيت بكِ.",
+            "كل لحظة معكِ تمنحني الأمل والسعادة، أحبكِ بلا حدود.",
+            "يا زهرة حياتي، أنتِ الهدية التي انتظرتها طويلاً."
+        ];
+
+        let currentMessageIndex = 0;
+
+        function showMessage() {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+            message.style.opacity = '0';
+            message.innerText = messages[currentMessageIndex];
+            message.style.animation = 'appear 1.5s ease forwards';
+            message.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                message.style.opacity = '1';
+            }, 100); // تأخير لإظهار التأثير
+
+            currentMessageIndex = (currentMessageIndex + 1) % messages.length; // تغيير الرسالة عند كل ضغطة
+        }
+    </script>
+</body>
+</html>
